@@ -1,21 +1,18 @@
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1621908888557') format('truetype');
+  src: url('iconfont.ttf?t=1621944153499') format('truetype');
 }
 
-/* .iconfont {
+[class*='icon-']{
   font-family: "iconfont" !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
-[class*='icon-'] {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-browse:before {
+  content: "\e666";
 }
 
 .icon-add:before {

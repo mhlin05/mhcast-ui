@@ -1,10 +1,18 @@
 <template>
   <div id="app">
-    <div style="margin-top: 20px">
-      <mh-button type="info" circle icon="icon-add" @click="f">1</mh-button>
-      <mh-button type="info" circle>2</mh-button>
-      <mh-button type="warning" icon="icon-minus" disabled>3</mh-button>
-    </div>
+<!--    <div class="ddd">-->
+<!--      <mh-input-->
+<!--        type="password"-->
+<!--        placeholder="输入密码"-->
+<!--        name="nihao"-->
+<!--        :value.sync='myData'-->
+<!--        show-pass-word-->
+<!--      ></mh-input>-->
+<!--      &lt;!&ndash;      <mh-dialog :visible='true'></mh-dialog>&ndash;&gt;-->
+<!--    </div>-->
+    <mh-dialog visible>
+      <span slot='footer'>ddddd</span>
+    </mh-dialog>
   </div>
 </template>
 
@@ -14,7 +22,10 @@ export default {
   components: {},
   data() {
     return {
-      msg: ''
+      msg: '',
+      isVisible: true,
+      isDisable: true,
+      myData: 'this is'
     }
   },
   methods: {
@@ -25,4 +36,8 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.ddd {
+  width: 190px;
+}
+</style>

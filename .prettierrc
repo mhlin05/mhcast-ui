@@ -4,5 +4,5 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "trailingComma": "none",
-  "printWidth": 200
+  "printWidth": 100
 }
