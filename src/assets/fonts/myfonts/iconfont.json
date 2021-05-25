@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16549959",
+      "name": "add",
+      "font_class": "add",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "16549979",
+      "name": "minus",
+      "font_class": "minus",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "16550016",
+      "name": "close_circle",
+      "font_class": "close_circle",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "16550070",
+      "name": "selected",
+      "font_class": "selected",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "16550073",
+      "name": "warn",
+      "font_class": "warn",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "16550083",
+      "name": "coin",
+      "font_class": "coin",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    }
+  ]
+}
