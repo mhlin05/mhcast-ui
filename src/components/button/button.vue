@@ -10,9 +10,12 @@
       {
         'is-circle': circle
       },
-      { 'is-disabled': disabled }
+      { 'is-disabled': disabled },
+      { 'is-loading': loading },
+      `hm-button--${size}`
     ]"
   >
+    <i class="icon-loading" v-if="this.loading"></i>
     <i :class="icon"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
@@ -20,7 +23,7 @@
 
 <script>
 export default {
-  name: 'MhButton',
+  name: 'LButton',
   props: {
     type: {
       type: String,
@@ -43,6 +46,15 @@ export default {
       default: ''
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    // button大小
+    size: {
+      type: String,
+      default: 'default'
+    },
+    loading: {
       type: Boolean,
       default: false
     }
@@ -78,6 +90,7 @@ export default {
   padding: 12px 20px;
   font-size: 14px;
   border-radius: 4px;
+  margin-left: 5px;
   &:hover,
   &:focus {
     color: #409eff;
@@ -200,6 +213,21 @@ export default {
       }
     }
   }
+  &--medium {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  &--small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  &--mini {
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
 
   // 圆角
   &.is-round {
@@ -210,12 +238,30 @@ export default {
     border-radius: 50%;
     padding: 12px;
   }
+  // 按钮disable样式
+  &.is-disabled {
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-loading {
+    cursor: not-allowed;
+    background-image: none;
+  }
 }
 .hm-button [class*='icon-'] + span {
   margin-left: 5px;
 }
-// disabled属性
-.hm-button.is-disabled {
-  cursor: no-drop;
+
+@keyframes easy-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.icon-loading {
+  display: inline-block;
+  animation: easy-spin 2s infinite linear;
 }
 </style>

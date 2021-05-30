@@ -1,41 +1,40 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1621944153499') format('truetype');
+  font-family: 'iconfont'; /* Project id  */
+  src: url('iconfont.ttf?t=1622353796789') format('truetype');
 }
 
-[class*='icon-']{
-  font-family: "iconfont" !important;
+[class*='icon-'] {
+  font-family: 'iconfont' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-loading:before {
+  content: '\e756';
+}
+
 .icon-browse:before {
-  content: "\e666";
+  content: '\e666';
 }
 
 .icon-add:before {
-  content: "\e66c";
+  content: '\e66c';
 }
 
 .icon-minus:before {
-  content: "\e66d";
+  content: '\e66d';
 }
 
 .icon-close_circle:before {
-  content: "\e66e";
+  content: '\e66e';
 }
 
 .icon-selected:before {
-  content: "\e66f";
+  content: '\e66f';
 }
 
 .icon-warn:before {
-  content: "\e670";
+  content: '\e670';
 }
-
-.icon-coin:before {
-  content: "\e671";
-}
-
