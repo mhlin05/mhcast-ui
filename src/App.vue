@@ -1,26 +1,29 @@
 <template>
   <div id="app">
-    <!--    <mh-form :model="model" label-width='80px'>-->
-    <!--      <mh-form-item label="用户名">-->
-    <!--        <mh-input-->
-    <!--          placeholder="请输入用户名"-->
-    <!--          v-model="model.username"-->
-    <!--        ></mh-input>-->
-    <!--      </mh-form-item>-->
-    <!--      <mh-form-item label="选择">-->
-    <!--        <mh-switch v-model="model.active"></mh-switch>-->
-    <!--      </mh-form-item>-->
-    <!--    </mh-form>-->
-<!--    <l-button type="danger" disabled>111</l-button>-->
-<!--    <l-button type="danger">111</l-button>-->
-<!--    <l-button>111</l-button>-->
-<!--    <l-button disabled>111</l-button>-->
-<!--    <l-button type="primary">111</l-button>-->
-<!--    <l-button type="primary" disabled>111</l-button>-->
-    <l-button type='danger' :loading='true'></l-button>
-    <l-button type='danger' size='medium' :loading='true'>111</l-button>
-    <l-button type='danger' size='small'>111</l-button>
-    <l-button type='danger' size='mini'>111</l-button>
+    <div style="margin-top: 20px">
+      <p>普通用法</p>
+      <l-check-box v-model="checked" label="吃饭"></l-check-box>
+    </div>
+    <div style="margin-top: 20px">
+      <p>checkboxgroup</p>
+      <l-check-box-group v-model="toDoList">
+        <l-check-box label="吃饭"></l-check-box>
+        <l-check-box label="洗澡"></l-check-box>
+        <l-check-box label="喝水"></l-check-box>
+        <l-check-box label="学习"></l-check-box>
+        <l-check-box label="上厕所"></l-check-box>
+      </l-check-box-group>
+    </div>
+    <div style="margin-top: 20px">
+      <p>设置选择的数量 最大最小</p>
+      <l-check-box-group v-model="maxList" :min="1" :max="2">
+        <l-check-box label="吃饭"></l-check-box>
+        <l-check-box label="洗澡"></l-check-box>
+        <l-check-box label="喝水"></l-check-box>
+        <l-check-box label="学习"></l-check-box>
+        <l-check-box label="上厕所"></l-check-box>
+      </l-check-box-group>
+    </div>
   </div>
 </template>
 
@@ -29,23 +32,14 @@ export default {
   name: 'app',
   components: {},
   data() {
-    return {}
-  },
-  methods: {
-    f(e) {
-      console.log(e)
-    },
-    handleChange(e) {
-      console.log(e.target.checked)
-      console.log(this.isChecked)
-      // this.isChecked = !e.target.checked
+    return {
+      checked: true,
+      toDoList: ['洗澡', '吃饭', '喝水', '上厕所'],
+      maxList: ['洗澡', '吃饭']
     }
-  }
+  },
+  methods: {}
 }
 </script>
 
-<style lang="scss">
-.ddd {
-  width: 190px;
-}
-</style>
+<style lang="scss"></style>

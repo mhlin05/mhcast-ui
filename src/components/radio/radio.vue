@@ -1,11 +1,16 @@
 <template>
   <label
     class="one-radio"
-    :class="{
-      'is-checked': label === model
-    }"
+    :class="[
+      {
+        'is-checked': label === model,
+        'is-disabled': disabled,
+        'have-border': border
+      },
+      `radio--${radioSize}`
+    ]"
   >
-    <span class="one-radio_input">
+    <span class="one-radio_input" :class="{ 'is-disabled': disabled }">
       <span class="one-radio_inner"></span>
       <input
         class="one-radio_original"
@@ -13,6 +18,7 @@
         :name="name"
         :value="label"
         v-model="model"
+        :disabled="disabled"
       />
     </span>
     <span class="one-radio_label">
@@ -25,17 +31,34 @@
 
 <script>
 export default {
-  name: 'MhRadio',
+  name: 'LRadio',
   components: {},
   props: {
+    // 原生input绑定的值
     label: {
       type: [String, Number, Boolean],
       default: ''
     },
+    // v-model 传入的value
+    // 经过处理 在原生input上双向绑定
     value: null,
     name: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    // 是否带有边框
+    border: {
+      type: Boolean,
+      default: false
+    },
+    // radio的尺寸，仅在border为真的时候有效
+    size: {
+      type: String,
+      default: 'default'
     }
   },
   data() {
@@ -43,6 +66,13 @@ export default {
   },
   methods: {},
   computed: {
+    radioSize() {
+      if (this.size !== 'default') {
+        return this.size
+      } else {
+        return this.radioGroup.size
+      }
+    },
     model: {
       get() {
         return this.isGroup ? this.radioGroup.value : this.value
@@ -123,25 +153,80 @@ export default {
       bottom: 0;
       margin: 0;
     }
+    &.is-disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+      //background: #222222;
+      -webkit-user-select: none;
+    }
   }
   .one-radio_label {
     font-size: 14px;
     padding-left: 10px;
   }
-}
-// 选中的样式
-.one-radio.is-checked {
-  .one-radio_input {
-    .one-radio_inner {
-      border-color: #409eff;
-      background-color: #409eff;
-      &:after {
-        transform: translate(-50%, -50%) scale(1);
+  &.is-checked {
+    .one-radio_input {
+      .one-radio_inner {
+        border-color: #409eff;
+        background-color: #409eff;
+        &:after {
+          transform: translate(-50%, -50%) scale(1);
+        }
       }
     }
+    .one-radio_label {
+      color: #409eff;
+    }
   }
-  .one-radio_label {
-    color: #409eff;
+  &.is-disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    .one-radio_input {
+      .one-radio_inner {
+        border-color: #c0c4cc;
+        background-color: #c0c4cc;
+      }
+    }
+    .one-radio_label {
+      color: #c0c4cc;
+    }
+  }
+  &.have-border {
+    padding: 12px 20px 0 10px;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    height: 40px;
+    &.radio--medium {
+      padding: 10px 20px 0 10px;
+      border-radius: 4px;
+      height: 36px;
+    }
+    &.radio--small {
+      padding: 8px 15px 0 10px;
+      border-radius: 3px;
+      height: 32px;
+    }
+    &.radio--mini {
+      padding: 6px 15px 0 10px;
+      border-radius: 3px;
+      height: 28px;
+    }
   }
 }
+// 选中的样式
+//.one-radio.is-checked {
+//  .one-radio_input {
+//    .one-radio_inner {
+//      border-color: #409eff;
+//      background-color: #409eff;
+//      &:after {
+//        transform: translate(-50%, -50%) scale(1);
+//      }
+//    }
+//  }
+//  .one-radio_label {
+//    color: #409eff;
+//  }
+//}
 </style>

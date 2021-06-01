@@ -3,6 +3,7 @@
     @click="handleClick"
     class="hm-button"
     :disabled="disabled"
+    :autofocus="autofocus"
     :class="[
       `hm-button--${type}`,
       { 'is-plain': plain },
@@ -57,6 +58,10 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    autofocus: {
+      type: Boolean,
+      default: false
     }
   },
   created() {},
@@ -91,6 +96,8 @@ export default {
   font-size: 14px;
   border-radius: 4px;
   margin-left: 5px;
+  &.is-disabled,
+  &.is-loading,
   &:hover,
   &:focus {
     color: #409eff;
@@ -107,6 +114,8 @@ export default {
     color: #fff;
     background-color: #409eff;
     border-color: #409eff;
+    &.is-disabled,
+    &.is-loading,
     &:hover,
     &:focus {
       background: #66b1ff;
@@ -129,6 +138,8 @@ export default {
     color: #fff;
     background-color: #67c23a;
     border-color: #67c23a;
+    &.is-disabled,
+    &.is-loading,
     &:hover,
     &:focus {
       background: #85ce61;
@@ -151,6 +162,8 @@ export default {
     color: #fff;
     background-color: #909399;
     border-color: #909399;
+    &.is-disabled,
+    &.is-loading,
     &:hover,
     &:focus {
       background: #a6a9ad;
@@ -173,6 +186,8 @@ export default {
     color: #fff;
     background-color: #e6a23c;
     border-color: #e6a23c;
+    &.is-disabled,
+    &.is-loading,
     &:hover,
     &:focus {
       background: #ebb563;
@@ -195,6 +210,9 @@ export default {
     color: #fff;
     background-color: #f56c6c;
     border-color: #f56c6c;
+
+    &.is-disabled,
+    &.is-loading,
     &:hover,
     &:focus {
       background: #f78989;

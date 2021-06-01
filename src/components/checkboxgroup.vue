@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'MhCheckBoxGroup',
+  name: 'LCheckBoxGroup',
   components: {},
   props: {
     value: {
@@ -14,6 +14,12 @@ export default {
       default: () => {
         return []
       }
+    },
+    min: {
+      type: Number
+    },
+    max: {
+      type: Number
     }
   },
   data() {

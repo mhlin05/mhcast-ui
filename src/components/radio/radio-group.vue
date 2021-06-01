@@ -4,9 +4,14 @@
 
 <script>
 export default {
-  name: 'MhRadioGroup',
+  name: 'LRadioGroup',
   props: {
-    value: null
+    value: null,
+    // 单选框组尺寸，仅对按钮形式的 Radio 或带有边框的 Radio 有效
+    size: {
+      type: String,
+      default: 'default'
+    }
   },
   data() {
     return {}

@@ -1,6 +1,9 @@
 <template>
-  <label class="one-checkbox" :class="{ 'is-checked': isChecked }">
-    <span class="one-checkbox_input">
+  <label
+    class="one-checkbox"
+    :class="{ 'is-checked': isChecked, 'is-disabled': disabledFactor }"
+  >
+    <span class="one-checkbox_input" :class="{ 'is-disabled': disabledFactor }">
       <span class="one-checkbox_inner"></span>
       <input
         type="checkbox"
@@ -8,6 +11,7 @@
         :name="name"
         :value="label"
         v-model="model"
+        :disabled="disabled || overMax || lessMin"
       />
     </span>
     <span class="one-checkbox_label">
@@ -22,7 +26,7 @@
 
 <script>
 export default {
-  name: 'MhCheckBox',
+  name: 'LCheckBox',
   components: {},
   props: {
     label: {
@@ -36,6 +40,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -65,6 +73,21 @@ export default {
       return this.isGroup
         ? this.checkBoxGroup.value.includes(this.label)
         : this.model
+    },
+    overMax() {
+      return (
+        this.model.length >= this.checkBoxGroup.max &&
+        !this.checkBoxGroup.value.includes(this.label)
+      )
+    },
+    lessMin() {
+      return (
+        this.model.length <= this.checkBoxGroup.min &&
+        this.checkBoxGroup.value.includes(this.label)
+      )
+    },
+    disabledFactor() {
+      return this.disabled || this.overMax || this.lessMin
     }
   },
   inject: {
@@ -84,6 +107,10 @@ export default {
   white-space: nowrap;
   user-select: none;
   margin-right: 30px;
+  &.is-disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+  }
   .one-checkbox_input {
     white-space: nowrap;
     cursor: pointer;
@@ -92,6 +119,10 @@ export default {
     line-height: 1;
     position: relative;
     vertical-align: middle;
+    &.is-disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
     .one-checkbox_inner {
       display: inline-block;
       position: relative;
