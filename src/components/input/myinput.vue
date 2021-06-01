@@ -13,13 +13,14 @@
     <span class="one-input_suffix">
       <i class="one-input_icon icon-browse" v-if="showPassWord" @click="handlePassWordVisible"></i>
       <i class="one-input_icon icon-close_circle" v-if="clearable && value" @click="clear"></i>
+<!--      <i class="one-input_icon icon-close_circle"></i>-->
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MhInput',
+  name: 'LInput',
   components: {},
   props: {
     // 禁用
@@ -65,7 +66,7 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit('update:value', e.target.value)
+      this.$emit('input', e.target.value)
     },
     clear() {
       this.$emit('input', '')
@@ -79,7 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 .one-input {
-  width: 100%;
+  //width: 30%;
   position: relative;
   font-size: 14px;
   display: inline-block;
