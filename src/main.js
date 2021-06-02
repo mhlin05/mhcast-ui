@@ -11,7 +11,7 @@ import LCheckBox from './components/checkbox/checkbox.vue'
 import LCheckBoxGroup from './components/checkbox/checkboxgroup.vue'
 import MhForm from './components/form/form'
 import MhFormItem from './components/form/form-item'
-import LDatePicker from './components/datepicker/datepicker'
+import LDatePicker from './components/datepicker/datepicker.vue'
 import './assets/fonts/myfonts/iconfont.css'
 
 Vue.component(LButton.name, LButton)

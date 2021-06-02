@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <l-date-picker></l-date-picker>
+    <div style="width: 300px">
+      <l-date-picker v-model="value1"></l-date-picker>
+      <p>{{ value1 }}</p>
+    </div>
   </div>
 </template>
 
@@ -10,7 +13,7 @@ export default {
   components: {},
   data() {
     return {
-      input: ''
+      value1: ''
     }
   },
   methods: {}
