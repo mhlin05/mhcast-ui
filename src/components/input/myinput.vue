@@ -9,11 +9,20 @@
       :disabled="disabled"
       :value="value"
       @input="handleInput"
+      @blur="handleBlur"
     />
     <span class="one-input_suffix">
-      <i class="one-input_icon icon-browse" v-if="showPassWord" @click="handlePassWordVisible"></i>
-      <i class="one-input_icon icon-close_circle" v-if="clearable && value" @click="clear"></i>
-<!--      <i class="one-input_icon icon-close_circle"></i>-->
+      <i
+        class="one-input_icon icon-browse"
+        v-if="showPassWord"
+        @click="handlePassWordVisible"
+      ></i>
+      <i
+        class="one-input_icon icon-close_circle"
+        v-if="clearable && value"
+        @click="clear"
+      ></i>
+      <!--      <i class="one-input_icon icon-close_circle"></i>-->
     </span>
   </div>
 </template>
@@ -26,55 +35,59 @@ export default {
     // 禁用
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 文本框类型
     type: {
       type: String,
-      default: '请输入'
+      default: '请输入',
     },
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     showPassWord: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      passWordVisible: false
+      passWordVisible: false,
     }
   },
   computed: {
     showSuffix() {
       return this.showPassWord || this.clearable
-    }
+    },
   },
   methods: {
     handleInput(e) {
       this.$emit('input', e.target.value)
+    },
+    handleBlur(e) {
+      // 通知验证
+      this.$parent.$emit('validate')
     },
     clear() {
       this.$emit('input', '')
     },
     handlePassWordVisible() {
       this.passWordVisible = !this.passWordVisible
-    }
-  }
+    },
+  },
 }
 </script>
 

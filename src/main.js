@@ -12,7 +12,10 @@ import LCheckBoxGroup from './components/checkbox/checkboxgroup.vue'
 import MhForm from './components/form/form'
 import MhFormItem from './components/form/form-item'
 import LDatePicker from './components/datepicker/datepicker.vue'
+// import Schema from 'async-validator'
+
 import './assets/fonts/myfonts/iconfont.css'
+// Schema.warning = function () {}
 
 Vue.component(LButton.name, LButton)
 Vue.component(MhDialog.name, MhDialog)
@@ -28,5 +31,5 @@ Vue.component(LDatePicker.name, LDatePicker)
 Vue.config.productionTip = false
 
 new Vue({
-  render: (h) => h(App)
+  render: (h) => h(App),
 }).$mount('#app')
